@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Destek Ol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="FıratAzakModernLogo.jpg" type="image/jpg">
+  <style>
+   body {
+  background-color: #0f0f1a;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #cbd3ff;
+}
+
+.container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 40px;
+  color: #69f0ff;
+  font-size: 32px;
+  text-shadow: 0 0 12px #69f0ff;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: linear-gradient(145deg, #16162a, #1f1f38);
+  border: 2px solid #292950;
+  border-radius: 14px;
+  padding: 30px 20px;
+  width: 280px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(106, 160, 255, 0.05);
+  color: #cbd3ff;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  border-color: #3c73ff;
+  box-shadow: 0 0 12px rgba(106,160,255,0.2);
+}
+
+.card.selected {
+  border-color: #69f0ff;
+  box-shadow: 0 0 16px rgba(105, 240, 255, 0.3);
+}
+
+.card input[type="radio"] {
+  display: none;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #69f0ff;
+}
+
+.desc {
+  font-size: 14px;
+  color: #aaaecf;
+  margin-top: 10px;
+}
+
+.submit-btn {
+  margin-top: 40px;
+  background-color: #69f0ff;
+  color: #0f0f1a;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(105, 240, 255, 0.4);
+}
+
+.submit-btn:hover {
+  background-color: #4bdef0;
+}
+
+.geri-don-kart {
+  display: inline-block;
+  background-color: transparent;
+  color: #69f0ff;
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid #69f0ff;
+  box-shadow: 0 0 12px rgba(105, 240, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin: 20px;
+}
+
+.geri-don-kart::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background-color: rgba(105, 240, 255, 0.1);
+  z-index: -1;
+  transition: width 0.3s ease;
+  border-radius: 10px;
+}
+
+.geri-don-kart:hover::before {
+  width: 100%;
+}
+
+.geri-don-kart:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+
+<a href="alifirat.html" class="geri-don-kart">← Geri Dön</a>
+
+
+
+
+  <div class="container">
+    <h1>Desteklemek İçin</h1>
+    <form action="odeme-baslat.php" method="post">
+      <div class="cards">
+        <label class="card">
+          <input type="radio" name="bagis" value="100" required>
+          <div class="title">Temel Bağış</div>
+          <div class="price">₺100</div>
+          <div class="desc">Temel Destek İçin</div>
+        </label>
+
+
+
+         <label class="card">
+          <input type="radio" name="bagis" value="100" required>
+          <div class="title">Orta Bağış</div>
+          <div class="price">₺350</div>
+          <div class="desc">Orta Bağış Vermek İsterseniz</div>
+        </label>
+
+        
+
+
+        <label class="card">
+          <input type="radio" name="bagis" value="500">
+          <div class="title">Gelişmiş Bağış</div>
+          <div class="price">₺500</div>
+          <div class="desc">Projelerin büyümesine katkıda bulunursunuz</div>
+        </label>
+      </div>
+
+      <button type="submit" class="submit-btn">Destek Ol</button>
+    </form>
+  </div>
+
+  <script>
+    // Kart seçimini görsel olarak göstermek için:
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+      });
+    });
+  </script>
+</body>
+</html>
